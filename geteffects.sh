@@ -6,6 +6,14 @@ effects=${effects/]/}
 
 echo '{"items": ['
 
+echo '{'
+echo '"uuid": "Turn Off",'
+echo '"title": "Turn Off,'
+echo '"autocomplete": "Turn Off",'
+echo '"arg": "Turn Off",'
+echo '"subtitle": "Turn off the Lights"'
+echo '},'
+
 IFS=','
 for effect in $effects
 do
@@ -15,7 +23,6 @@ do
     echo '"autocomplete":' ${effect[@]},
     echo '"arg":' ${effect[@]},
     echo '"subtitle": "Change current theme"'
-
     echo '},'
 done
 
