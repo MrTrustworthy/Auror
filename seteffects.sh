@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
-
-if [ "$*" == "Turn Off" ]; then
+if [ "$*" == "Brighter" ]; then
+    curl -g -X PUT -d '{"brightness" : {"increment":33}}' http://"$ip":16021/api/v1/"$token"/state
+elif [ "$*" == "Darker" ]; then
+    curl -g -X PUT -d '{"brightness" : {"increment":-33}}' http://"$ip":16021/api/v1/"$token"/state
+elif [ "$*" == "Turn Off" ]; then
     curl -g -X PUT -d '{"on" : {"value":false}}' http://"$ip":16021/api/v1/"$token"/state
 else
     payload="'{\"select\": \"$@\"}'"
